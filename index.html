@@ -1,0 +1,1146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Eminent Merchants – Apple & Tech Deals</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+  :root {
+    --cream: #F7F4EF;
+    --off-white: #FEFCF8;
+    --black: #0D0D0D;
+    --charcoal: #1A1A1A;
+    --mid: #3D3D3D;
+    --soft: #8A8A8A;
+    --border: #E2DDD6;
+    --accent: #C8A96E;
+    --card-bg: #FFFFFF;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--cream);
+    color: var(--black);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 400;
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: rgba(247,244,239,0.92);
+    backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 5vw;
+    height: 68px;
+  }
+  .nav-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.25rem;
+    font-weight: 900;
+    letter-spacing: -0.02em;
+    color: var(--black);
+    text-decoration: none;
+  }
+  .nav-logo span { color: var(--accent); }
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a {
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--mid);
+    text-decoration: none;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--black); }
+  .nav-cta {
+    background: var(--black);
+    color: #fff;
+    border: none;
+    padding: 10px 22px;
+    border-radius: 100px;
+    font-size: 0.82rem;
+    font-weight: 500;
+    font-family: 'DM Sans', sans-serif;
+    cursor: pointer;
+    text-decoration: none;
+    letter-spacing: 0.03em;
+    transition: background 0.2s, transform 0.15s;
+  }
+  .nav-cta:hover { background: var(--charcoal); transform: translateY(-1px); }
+
+  /* hamburger */
+  .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
+  .hamburger span { display: block; width: 24px; height: 2px; background: var(--black); border-radius: 2px; transition: 0.3s; }
+  .mobile-menu {
+    display: none; position: fixed; top: 68px; left: 0; right: 0; bottom: 0;
+    background: var(--cream); z-index: 99; padding: 3rem 5vw;
+    flex-direction: column; gap: 2rem;
+  }
+  .mobile-menu.open { display: flex; }
+  .mobile-menu a {
+    font-size: 1.4rem; font-weight: 600; color: var(--black);
+    text-decoration: none; border-bottom: 1px solid var(--border); padding-bottom: 1rem;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    padding-top: 68px;
+    display: flex; align-items: center;
+    background: var(--black);
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-bg-text {
+    position: absolute;
+    bottom: -0.1em; left: -0.02em;
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(120px, 22vw, 320px);
+    font-weight: 900;
+    color: rgba(255,255,255,0.04);
+    white-space: nowrap;
+    pointer-events: none;
+    user-select: none;
+    line-height: 1;
+  }
+  .hero-inner {
+    position: relative; z-index: 2;
+    padding: 6rem 5vw;
+    max-width: 900px;
+  }
+  .hero-badge {
+    display: inline-block;
+    background: var(--accent);
+    color: var(--black);
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 6px 16px;
+    border-radius: 100px;
+    margin-bottom: 2rem;
+    animation: fadeUp 0.6s ease both;
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(3rem, 8vw, 7rem);
+    font-weight: 900;
+    line-height: 1.0;
+    color: #fff;
+    letter-spacing: -0.03em;
+    animation: fadeUp 0.7s 0.1s ease both;
+  }
+  .hero h1 em { color: var(--accent); font-style: normal; }
+  .hero-sub {
+    margin-top: 1.5rem;
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    color: rgba(255,255,255,0.55);
+    max-width: 520px;
+    line-height: 1.7;
+    animation: fadeUp 0.7s 0.2s ease both;
+  }
+  .hero-actions {
+    margin-top: 2.5rem;
+    display: flex; gap: 1rem; flex-wrap: wrap;
+    animation: fadeUp 0.7s 0.3s ease both;
+  }
+  .btn-primary {
+    background: #fff;
+    color: var(--black);
+    padding: 14px 32px;
+    border-radius: 100px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background 0.2s, transform 0.15s;
+    display: inline-block;
+  }
+  .btn-primary:hover { background: var(--cream); transform: translateY(-2px); }
+  .btn-ghost {
+    background: transparent;
+    color: rgba(255,255,255,0.7);
+    padding: 14px 32px;
+    border-radius: 100px;
+    border: 1px solid rgba(255,255,255,0.2);
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: border-color 0.2s, color 0.2s;
+    display: inline-block;
+  }
+  .btn-ghost:hover { border-color: rgba(255,255,255,0.6); color: #fff; }
+  .hero-stats {
+    position: absolute;
+    right: 5vw; bottom: 4rem;
+    display: flex; gap: 3rem;
+    animation: fadeUp 0.7s 0.4s ease both;
+  }
+  .hero-stat { text-align: center; }
+  .hero-stat strong {
+    display: block;
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    font-weight: 900;
+    color: #fff;
+  }
+  .hero-stat span { font-size: 0.75rem; color: rgba(255,255,255,0.45); letter-spacing: 0.06em; text-transform: uppercase; }
+
+  /* ── CATEGORIES ── */
+  .section { padding: 6rem 5vw; }
+  .section-label {
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.75rem;
+  }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 900;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+    margin-bottom: 3rem;
+  }
+
+  .cat-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 1rem;
+  }
+  .cat-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 1.5rem 1rem 1.2rem;
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+    text-decoration: none;
+    color: var(--black);
+  }
+  .cat-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px rgba(0,0,0,0.08);
+    border-color: var(--accent);
+  }
+  .cat-icon {
+    width: 70px;
+    height: 70px;
+    margin: 0 auto 0.85rem;
+    border-radius: 18px;
+    overflow: hidden;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--off-white);
+  }
+  .cat-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .cat-name { font-size: 0.85rem; font-weight: 600; }
+  .cat-from { font-size: 0.72rem; color: var(--soft); margin-top: 0.2rem; }
+
+  /* ── PRODUCTS ── */
+  .products-section { background: var(--off-white); }
+  .filter-bar {
+    display: flex; gap: 0.6rem; flex-wrap: wrap;
+    margin-bottom: 2.5rem;
+  }
+  .filter-btn {
+    padding: 8px 18px;
+    border-radius: 100px;
+    border: 1px solid var(--border);
+    background: transparent;
+    font-size: 0.8rem;
+    font-weight: 500;
+    cursor: pointer;
+    font-family: 'DM Sans', sans-serif;
+    transition: 0.2s;
+  }
+  .filter-btn.active, .filter-btn:hover {
+    background: var(--black);
+    color: #fff;
+    border-color: var(--black);
+  }
+
+  .products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 1.5rem;
+  }
+  .product-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    overflow: hidden;
+    transition: transform 0.25s, box-shadow 0.25s;
+    cursor: pointer;
+  }
+  .product-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 48px rgba(0,0,0,0.10);
+  }
+  .product-card.hidden { display: none; }
+  .product-img {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    background: var(--cream);
+    overflow: hidden;
+  }
+  .product-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .product-body { padding: 1.2rem 1.4rem 1.4rem; }
+  .product-tag {
+    display: inline-block;
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 3px 10px;
+    border-radius: 100px;
+    margin-bottom: 0.6rem;
+  }
+  .tag-new { background: #E8F5E9; color: #2E7D32; }
+  .tag-cpo { background: #FFF3E0; color: #E65100; }
+  .tag-sale { background: #FCE4EC; color: #C62828; }
+  .tag-other { background: #EDE7F6; color: #4527A0; }
+  .product-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.15rem;
+    font-weight: 700;
+    line-height: 1.25;
+    margin-bottom: 0.4rem;
+  }
+  .product-desc {
+    font-size: 0.78rem;
+    color: var(--soft);
+    line-height: 1.5;
+    margin-bottom: 1rem;
+  }
+  .product-pricing {
+    display: flex; align-items: center; gap: 0.6rem;
+    margin-bottom: 1rem;
+  }
+  .product-price {
+    font-size: 1.3rem;
+    font-weight: 700;
+    font-family: 'Playfair Display', serif;
+  }
+  .product-old {
+    font-size: 0.85rem;
+    color: var(--soft);
+    text-decoration: line-through;
+  }
+  .add-btn {
+    width: 100%;
+    background: var(--black);
+    color: #fff;
+    border: none;
+    padding: 12px;
+    border-radius: 12px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    font-family: 'DM Sans', sans-serif;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.15s;
+    letter-spacing: 0.02em;
+  }
+  .add-btn:hover { background: var(--charcoal); transform: scale(1.02); }
+
+  /* ── MARQUEE ── */
+  .marquee-section {
+    background: var(--black);
+    overflow: hidden;
+    padding: 1.2rem 0;
+    border-top: 1px solid #222;
+    border-bottom: 1px solid #222;
+  }
+  .marquee-track {
+    display: flex; gap: 3rem; white-space: nowrap;
+    animation: marquee 22s linear infinite;
+  }
+  .marquee-item {
+    font-family: 'Playfair Display', serif;
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: rgba(255,255,255,0.4);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+  .marquee-item span { color: var(--accent); margin-right: 3rem; }
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+
+  /* ── PRICING TABLES ── */
+  .pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+  }
+  .pricing-table {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    overflow: hidden;
+  }
+  .pricing-table-header {
+    background: var(--black);
+    color: #fff;
+    padding: 1.5rem;
+    display: flex; align-items: center; gap: 0.8rem;
+  }
+  .pricing-table-header .icon { font-size: 1.5rem; }
+  .pricing-table-header h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+  }
+  .pricing-table-header small {
+    font-size: 0.72rem;
+    color: rgba(255,255,255,0.5);
+    display: block;
+    margin-top: 0.1rem;
+    font-weight: 400;
+  }
+  .pricing-row {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 0.85rem 1.5rem;
+    border-bottom: 1px solid var(--border);
+    font-size: 0.88rem;
+  }
+  .pricing-row:last-child { border-bottom: none; }
+  .pricing-row:hover { background: var(--cream); }
+  .pricing-row.addable {
+    cursor: pointer;
+  }
+  .pricing-row.addable:hover { background: #f3efe5; }
+  .pricing-row .model { font-weight: 500; }
+  .pricing-row .price { font-weight: 700; font-size: 0.95rem; color: var(--black); }
+
+  /* ── CONTACT / CTA ── */
+  .cta-section {
+    background: var(--black);
+    padding: 7rem 5vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+  .cta-text h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 900;
+    color: #fff;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+  }
+  .cta-text h2 em { color: var(--accent); font-style: normal; }
+  .cta-text p { color: rgba(255,255,255,0.5); margin-top: 1rem; max-width: 440px; line-height: 1.7; }
+  .cta-buttons { display: flex; flex-direction: column; gap: 1rem; align-items: flex-start; }
+  .btn-wa {
+    display: flex; align-items: center; gap: 10px;
+    background: #25D366;
+    color: #fff;
+    padding: 14px 28px;
+    border-radius: 100px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: opacity 0.2s, transform 0.15s;
+  }
+  .btn-wa:hover { opacity: 0.88; transform: translateY(-2px); }
+  .btn-email {
+    display: flex; align-items: center; gap: 10px;
+    background: transparent;
+    color: rgba(255,255,255,0.7);
+    padding: 14px 28px;
+    border-radius: 100px;
+    border: 1px solid rgba(255,255,255,0.2);
+    text-decoration: none;
+    font-size: 0.88rem;
+    font-weight: 500;
+    transition: 0.2s;
+  }
+  .btn-email:hover { border-color: rgba(255,255,255,0.6); color: #fff; }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--charcoal);
+    padding: 3rem 5vw;
+    display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1.5rem;
+    border-top: 1px solid #333;
+  }
+  .footer-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    font-weight: 900;
+    color: #fff;
+  }
+  .footer-logo span { color: var(--accent); }
+  .footer-info { font-size: 0.78rem; color: rgba(255,255,255,0.35); line-height: 1.8; }
+  .footer-info a { color: rgba(255,255,255,0.55); text-decoration: none; }
+  .footer-info a:hover { color: #fff; }
+
+  /* ── CART DRAWER ── */
+  .cart-overlay {
+    position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 200;
+    opacity: 0; pointer-events: none; transition: opacity 0.3s;
+  }
+  .cart-overlay.open { opacity: 1; pointer-events: all; }
+  .cart-drawer {
+    position: fixed; right: 0; top: 0; bottom: 0; width: min(420px, 100vw);
+    background: var(--off-white);
+    z-index: 201;
+    transform: translateX(100%);
+    transition: transform 0.35s cubic-bezier(0.4,0,0.2,1);
+    display: flex; flex-direction: column;
+  }
+  .cart-drawer.open { transform: translateX(0); }
+  .cart-header {
+    padding: 1.5rem;
+    border-bottom: 1px solid var(--border);
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  .cart-header h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem; font-weight: 700;
+  }
+  .cart-close {
+    background: none; border: none; font-size: 1.5rem;
+    cursor: pointer; color: var(--mid); line-height: 1;
+  }
+  .cart-items { flex: 1; overflow-y: auto; padding: 1.5rem; display: flex; flex-direction: column; gap: 1rem; }
+  .cart-empty { text-align: center; padding: 4rem 0; color: var(--soft); }
+  .cart-item {
+    background: #fff; border: 1px solid var(--border); border-radius: 14px;
+    padding: 1rem; display: flex; justify-content: space-between; align-items: center;
+  }
+  .cart-item-info .name { font-weight: 600; font-size: 0.9rem; }
+  .cart-item-info .price { font-size: 0.82rem; color: var(--soft); margin-top: 2px; }
+  .cart-item-remove {
+    background: none; border: none; color: var(--soft); cursor: pointer; font-size: 1rem;
+  }
+  .cart-footer { padding: 1.5rem; border-top: 1px solid var(--border); }
+  .cart-total {
+    display: flex; justify-content: space-between;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem; font-weight: 700; margin-bottom: 1rem;
+  }
+  .checkout-btn {
+    display: block; width: 100%; text-align: center;
+    background: var(--black); color: #fff;
+    padding: 14px; border-radius: 12px;
+    text-decoration: none; font-weight: 600; font-size: 0.9rem;
+    border: none; cursor: pointer; font-family: 'DM Sans', sans-serif;
+    transition: background 0.2s;
+  }
+  .checkout-btn:hover { background: var(--charcoal); }
+
+  /* ── CART FLOAT ── */
+  .cart-float {
+    position: fixed; bottom: 2rem; right: 2rem; z-index: 99;
+    background: var(--black); color: #fff;
+    border: none; border-radius: 100px;
+    padding: 14px 22px;
+    font-size: 0.9rem; font-weight: 600;
+    font-family: 'DM Sans', sans-serif;
+    cursor: pointer;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.25);
+    display: flex; align-items: center; gap: 8px;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .cart-float:hover { transform: translateY(-2px); box-shadow: 0 12px 32px rgba(0,0,0,0.3); }
+  .cart-count {
+    background: var(--accent); color: var(--black);
+    border-radius: 100px; font-size: 0.72rem; font-weight: 700;
+    padding: 2px 8px; min-width: 22px; text-align: center;
+  }
+
+  /* ── TOAST ── */
+  .toast {
+    position: fixed; bottom: 5rem; left: 50%; transform: translateX(-50%) translateY(20px);
+    background: var(--black); color: #fff;
+    padding: 12px 24px; border-radius: 100px;
+    font-size: 0.85rem; font-weight: 500;
+    opacity: 0; pointer-events: none;
+    transition: opacity 0.3s, transform 0.3s;
+    z-index: 300; white-space: nowrap;
+  }
+  .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .reveal {
+    opacity: 0; transform: translateY(30px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 768px) {
+    .nav-links, .nav-cta { display: none; }
+    .hamburger { display: flex; }
+    .hero-stats { position: static; margin-top: 3rem; justify-content: flex-start; }
+    .cta-section { flex-direction: column; }
+    .pricing-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">Eminent<span>.</span></a>
+  <ul class="nav-links">
+    <li><a href="#products">Shop</a></li>
+    <li><a href="#pricing">Pricing</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="https://wa.me/27663173318" target="_blank" class="nav-cta">WhatsApp Us</a>
+  <div class="hamburger" onclick="toggleMenu()" id="ham">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#products" onclick="toggleMenu()">Shop</a>
+  <a href="#pricing" onclick="toggleMenu()">Pricing</a>
+  <a href="#contact" onclick="toggleMenu()">Contact</a>
+  <a href="https://wa.me/27663173318" target="_blank">WhatsApp: 066 317 3318</a>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg-text">EMINENT</div>
+  <div class="hero-inner">
+    <div class="hero-badge">🍎 South Africa's Tech Deals</div>
+    <h1>Premium<br/><em>Apple</em> &<br/>Tech Gear.</h1>
+    <p class="hero-sub">Brand new & certified pre-owned iPhones, AirPods, smartwatches, laptops and more — at prices that make sense.</p>
+    <div class="hero-actions">
+      <a href="#products" class="btn-primary">Shop Now →</a>
+      <a href="https://wa.me/27663173318" target="_blank" class="btn-ghost">WhatsApp Us</a>
+    </div>
+  </div>
+  <div class="hero-stats">
+    <div class="hero-stat"><strong>100+</strong><span>Products</span></div>
+    <div class="hero-stat"><strong>24/7</strong><span>Open</span></div>
+    <div class="hero-stat"><strong>CPO</strong><span>Certified</span></div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-section">
+  <div class="marquee-track" id="marqueeTrack">
+    <div class="marquee-item">iPhone 15 <span>·</span></div>
+    <div class="marquee-item">AirPods Pro <span>·</span></div>
+    <div class="marquee-item">MacBook Pro <span>·</span></div>
+    <div class="marquee-item">Apple Watch <span>·</span></div>
+    <div class="marquee-item">Villa Fragrances <span>·</span></div>
+    <div class="marquee-item">CPO Deals <span>·</span></div>
+    <div class="marquee-item">Brand New iPhones <span>·</span></div>
+    <div class="marquee-item">iPhone 15 <span>·</span></div>
+    <div class="marquee-item">AirPods Pro <span>·</span></div>
+    <div class="marquee-item">MacBook Pro <span>·</span></div>
+    <div class="marquee-item">Apple Watch <span>·</span></div>
+    <div class="marquee-item">Villa Fragrances <span>·</span></div>
+    <div class="marquee-item">CPO Deals <span>·</span></div>
+    <div class="marquee-item">Brand New iPhones <span>·</span></div>
+  </div>
+</div>
+
+<!-- CATEGORIES -->
+<section class="section reveal" id="categories">
+  <div class="section-label">Browse by category</div>
+  <h2 class="section-title">What are you<br/>looking for?</h2>
+  <div class="cat-grid">
+    <a class="cat-card" href="#products" onclick="filterProducts('iphone')">
+      <div class="cat-icon"><img src="Assets/Apple iPhone 12.jfif" alt="iPhone category"></div>
+      <div class="cat-name">iPhone</div>
+      <div class="cat-from">From R2,700</div>
+    </a>
+    <a class="cat-card" href="#products" onclick="filterProducts('airpods')">
+      <div class="cat-icon"><img src="Assets/AirPods Pro.jfif" alt="AirPods category"></div>
+      <div class="cat-name">AirPods</div>
+      <div class="cat-from">From R850</div>
+    </a>
+    <a class="cat-card" href="#products" onclick="filterProducts('laptop')">
+      <div class="cat-icon"><img src="Assets/Dell XPS 13 Ultrabook.jfif" alt="Laptops category"></div>
+      <div class="cat-name">Laptops & Mac</div>
+      <div class="cat-from">From R4,900</div>
+    </a>
+    <a class="cat-card" href="#products" onclick="filterProducts('watch')">
+      <div class="cat-icon"><img src="Assets/Watch Ultra.jfif" alt="Watches category"></div>
+      <div class="cat-name">Smartwatches</div>
+      <div class="cat-from">From R250</div>
+    </a>
+    <a class="cat-card" href="#products" onclick="filterProducts('fragrance')">
+      <div class="cat-icon"><img src="Assets/AirPods Pro.jfif" alt="Fragrances category"></div>
+      <div class="cat-name">Fragrances</div>
+      <div class="cat-from">From R170</div>
+    </a>
+    <a class="cat-card" href="#products" onclick="filterProducts('all')">
+      <div class="cat-icon"><img src="Assets/Apple iPhone 12.jfif" alt="All products"></div>
+      <div class="cat-name">View All</div>
+      <div class="cat-from">All Products</div>
+    </a>
+  </div>
+</section>
+
+<!-- PRODUCTS -->
+<section class="section products-section reveal" id="products">
+  <div class="section-label">Our catalogue</div>
+  <h2 class="section-title">Featured<br/>Products.</h2>
+
+  <div class="filter-bar" id="filterBar">
+    <button class="filter-btn active" onclick="filterProducts('all', this)">All</button>
+    <button class="filter-btn" onclick="filterProducts('iphone', this)">iPhones</button>
+    <button class="filter-btn" onclick="filterProducts('airpods', this)">AirPods</button>
+    <button class="filter-btn" onclick="filterProducts('laptop', this)">Laptops</button>
+    <button class="filter-btn" onclick="filterProducts('watch', this)">Watches</button>
+    <button class="filter-btn" onclick="filterProducts('fragrance', this)">Fragrances</button>
+  </div>
+
+  <div class="products-grid" id="productsGrid">
+
+    <!-- iPhone XR CPO -->
+    <div class="product-card" data-cat="iphone">
+      <div class="product-img"><img src="Assets/Iphone XR.jfif" alt="iPhone XR"></div>
+      <div class="product-body">
+        <span class="product-tag tag-cpo">CPO</span>
+        <div class="product-name">iPhone XR</div>
+        <div class="product-desc">Certified Pre-Owned. Great condition, fully tested & verified.</div>
+        <div class="product-pricing">
+          <div class="product-price">R4,500</div>
+        </div>
+        <button class="add-btn" onclick="addToCart('iPhone XR (CPO)', 4500)">Add to Cart</button>
+      </div>
+    </div>
+
+    <!-- iPhone 12 CPO -->
+    <div class="product-card" data-cat="iphone">
+      <div class="product-img"><img src="Assets/iPhone 12 cpo.jfif" alt="iPhone 12 CPO"></div>
+      <div class="product-body">
+        <span class="product-tag tag-sale">Sale</span>
+        <div class="product-name">iPhone 12 🍏</div>
+        <div class="product-desc">Certified Pre-Owned. Dual cameras, A14 Bionic chip.</div>
+        <div class="product-pricing">
+          <div class="product-price">R6,100</div>
+          <div class="product-old">R6,400</div>
+        </div>
+        <button class="add-btn" onclick="addToCart('iPhone 12 CPO', 6100)">Add to Cart</button>
+      </div>
+    </div>
+
+    <!-- AirPods Pro -->
+    <div class="product-card" data-cat="airpods">
+      <div class="product-img"><img src="Assets/AirPods Pro.jfif" alt="AirPods Pro"></div>
+      <div class="product-body">
+        <span class="product-tag tag-sale">Sale</span>
+        <div class="product-name">AirPods Pro</div>
+        <div class="product-desc">Active noise cancellation, transparency mode, MagSafe charging.</div>
+        <div class="product-pricing">
+          <div class="product-price">R850</div>
+          <div class="product-old">R900</div>
+        </div>
+        <button class="add-btn" onclick="addToCart('AirPods Pro', 850)">Add to Cart</button>
+      </div>
+    </div>
+
+    <!-- Brand New iPhone 12 -->
+    <div class="product-card" data-cat="iphone">
+      <div class="product-img"><img src="Assets/Apple iPhone 12.jfif" alt="Brand New iPhone 12"></div>
+      <div class="product-body">
+        <span class="product-tag tag-new">New</span>
+        <div class="product-name">Brand New iPhone 12</div>
+        <div class="product-desc">Sealed box. 5G, OLED Super Retina XDR, A14 Bionic.</div>
+        <div class="product-pricing">
+          <div class="product-price">R6,500</div>
+        </div>
+        <button class="add-btn" onclick="addToCart('Brand New iPhone 12', 6500)">Add to Cart</button>
+      </div>
+    </div>
+
+    <!-- Brand New iPhone 11 -->
+    <div class="product-card" data-cat="iphone">
+      <div class="product-img"><img src="Assets/iphone 11.jfif" alt="Brand New iPhone 11"></div>
+      <div class="product-body">
+        <span class="product-tag tag-new">New</span>
+        <div class="product-name">Brand New iPhone 11</div>
+        <div class="product-desc">Sealed box. Dual 12MP cameras, Face ID, A13 Bionic.</div>
+        <div class="product-pricing">
+          <div class="product-price">R5,600</div>
+        </div>
+        <button class="add-btn" onclick="addToCart('Brand New iPhone 11', 5600)">Add to Cart</button>
+      </div>
+    </div>
+
+    <!-- Brand New iPhone 13 -->
+    <div class="product-card" data-cat="iphone">
+      <div class="product-img"><img src="Assets/iPhone 13.jfif" alt="Brand New iPhone 13"></div>
+      <div class="product-body">
+        <span class="product-tag tag-new">New</span>
+        <div class="product-name">Brand New iPhone 13</div>
+        <div class="product-desc">Sealed box. Cinematic mode, A15 Bionic, 5G ready.</div>
+        <div class="product-pricing">
+          <div class="product-price">R8,700</div>
+        </div>
+        <button class="add-btn" onclick="addToCart('Brand New iPhone 13', 8700)">Add to Cart</button>
+      </div>
+    </div>
+
+    <!-- X8 Smartwatch Combo -->
+    <div class="product-card" data-cat="watch">
+      <div class="product-img"><img src="Assets/X8.jfif" alt="X8 Smartwatch Combo"></div>
+      <div class="product-body">
+        <span class="product-tag tag-sale">Sale</span>
+        <div class="product-name">X8 Unique Combination</div>
+        <div class="product-desc">Smartwatch combo pack — multi-function fitness & style.</div>
+        <div class="product-pricing">
+          <div class="product-price">R520</div>
+          <div class="product-old">R550</div>
+        </div>
+        <button class="add-btn" onclick="addToCart('X8 Unique Combination', 520)">Add to Cart</button>
+      </div>
+    </div>
+
+    <!-- PC / Laptop -->
+    <div class="product-card" data-cat="laptop">
+      <div class="product-img"><img src="Assets/Dell XPS 13 Ultrabook.jfif" alt="Laptop / PC"></div>
+      <div class="product-body">
+        <span class="product-tag tag-sale">Sale</span>
+        <div class="product-name">Laptop / PC</div>
+        <div class="product-desc">High-performance laptop. Contact us for full specs.</div>
+        <div class="product-pricing">
+          <div class="product-price">R4,900</div>
+          <div class="product-old">R5,200</div>
+        </div>
+        <button class="add-btn" onclick="addToCart('Laptop / PC', 4900)">Add to Cart</button>
+      </div>
+    </div>
+
+    <!-- Smart Watch -->
+    <div class="product-card" data-cat="watch">
+      <div class="product-img"><img src="Assets/Watch Ultra.jfif" alt="Smart Watch"></div>
+      <div class="product-body">
+        <span class="product-tag tag-other">Gadget</span>
+        <div class="product-name">Smart Watch</div>
+        <div class="product-desc">Fitness tracker, heart rate monitor, multi-sport modes.</div>
+        <div class="product-pricing">
+          <div class="product-price">R250</div>
+        </div>
+        <button class="add-btn" onclick="addToCart('Smart Watch', 250)">Add to Cart</button>
+      </div>
+    </div>
+
+    <!-- Villa Fragrance -->
+    <div class="product-card" data-cat="fragrance">
+      <div class="product-img"><img src="Assets/villa fraguence.jpeg" alt="Villa Fragrance 60ml"></div>
+      <div class="product-body">
+        <span class="product-tag tag-other">Fragrance</span>
+        <div class="product-name">Villa Fragrance 60ml</div>
+        <div class="product-desc">Premium 60ml cologne. Long-lasting signature scent.</div>
+        <div class="product-pricing">
+          <div class="product-price">R170</div>
+        </div>
+        <button class="add-btn" onclick="addToCart('Villa Fragrance 60ml', 170)">Add to Cart</button>
+      </div>
+    </div>
+
+    <!-- Villa Combo -->
+    <div class="product-card" data-cat="fragrance">
+      <div class="product-img"><img src="Assets/villa.jpeg" alt="Villa Combo — Lotion & Cologne"></div>
+      <div class="product-body">
+        <span class="product-tag tag-other">Combo</span>
+        <div class="product-name">Villa Combo — Lotion & Cologne</div>
+        <div class="product-desc">200ml body lotion + 60ml cologne. Perfect gift set.</div>
+        <div class="product-pricing">
+          <div class="product-price">R250</div>
+        </div>
+        <button class="add-btn" onclick="addToCart('Villa Lotion & Cologne Combo', 250)">Add to Cart</button>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- PRICING TABLES -->
+<section class="section reveal" id="pricing">
+  <div class="section-label">Full price lists</div>
+  <h2 class="section-title">Complete<br/>Pricing.</h2>
+  <div class="pricing-grid">
+
+    <!-- Brand New iPhones -->
+    <div class="pricing-table">
+      <div class="pricing-table-header">
+        <span class="icon">📦</span>
+        <div><h3>Brand New iPhones</h3><small>Sealed box — factory new</small></div>
+      </div>
+      <div class="pricing-row"><span class="model">iPhone 7</span><span class="price">R3,000</span></div>
+      <div class="pricing-row"><span class="model">iPhone 7+</span><span class="price">R3,700</span></div>
+      <div class="pricing-row"><span class="model">iPhone 8</span><span class="price">R3,600</span></div>
+      <div class="pricing-row"><span class="model">iPhone 8+</span><span class="price">R4,200</span></div>
+      <div class="pricing-row"><span class="model">iPhone X</span><span class="price">R4,700</span></div>
+      <div class="pricing-row"><span class="model">iPhone XR</span><span class="price">R4,800</span></div>
+      <div class="pricing-row"><span class="model">iPhone XS</span><span class="price">R4,900</span></div>
+      <div class="pricing-row"><span class="model">iPhone 11</span><span class="price">R5,700</span></div>
+      <div class="pricing-row"><span class="model">iPhone 11 Pro</span><span class="price">R7,300</span></div>
+      <div class="pricing-row"><span class="model">iPhone 11 Pro Max</span><span class="price">R8,200</span></div>
+      <div class="pricing-row"><span class="model">iPhone 12</span><span class="price">R6,600</span></div>
+      <div class="pricing-row"><span class="model">iPhone 12 Pro</span><span class="price">R8,500</span></div>
+      <div class="pricing-row"><span class="model">iPhone 12 Pro Max</span><span class="price">R9,600</span></div>
+      <div class="pricing-row"><span class="model">iPhone 13</span><span class="price">R8,700</span></div>
+      <div class="pricing-row"><span class="model">iPhone 13 Pro</span><span class="price">R12,200</span></div>
+      <div class="pricing-row"><span class="model">iPhone 13 Pro Max</span><span class="price">R12,700</span></div>
+      <div class="pricing-row"><span class="model">iPhone 14</span><span class="price">R10,900</span></div>
+      <div class="pricing-row"><span class="model">iPhone 14 Pro</span><span class="price">R13,400</span></div>
+      <div class="pricing-row"><span class="model">iPhone 15</span><span class="price">R13,100</span></div>
+    </div>
+
+    <!-- CPO iPhones -->
+    <div class="pricing-table">
+      <div class="pricing-table-header">
+        <span class="icon">✅</span>
+        <div><h3>CPO iPhones</h3><small>Certified Pre-Owned — tested & verified</small></div>
+      </div>
+      <div class="pricing-row"><span class="model">iPhone 7</span><span class="price">R2,700</span></div>
+      <div class="pricing-row"><span class="model">iPhone 7+</span><span class="price">R3,400</span></div>
+      <div class="pricing-row"><span class="model">iPhone 8</span><span class="price">R3,300</span></div>
+      <div class="pricing-row"><span class="model">iPhone 8+</span><span class="price">R3,800</span></div>
+      <div class="pricing-row"><span class="model">iPhone X</span><span class="price">R4,100</span></div>
+      <div class="pricing-row"><span class="model">iPhone XR</span><span class="price">R4,400</span></div>
+      <div class="pricing-row"><span class="model">iPhone XS</span><span class="price">R4,600</span></div>
+      <div class="pricing-row"><span class="model">iPhone 11</span><span class="price">R5,300</span></div>
+      <div class="pricing-row"><span class="model">iPhone 11 Pro</span><span class="price">R6,500</span></div>
+      <div class="pricing-row"><span class="model">iPhone 11 Pro Max</span><span class="price">R7,600</span></div>
+      <div class="pricing-row"><span class="model">iPhone 12</span><span class="price">R6,200</span></div>
+      <div class="pricing-row"><span class="model">iPhone 12 Pro</span><span class="price">R7,800</span></div>
+      <div class="pricing-row"><span class="model">iPhone 12 Pro Max</span><span class="price">R8,100</span></div>
+      <div class="pricing-row"><span class="model">iPhone 13</span><span class="price">R8,000</span></div>
+      <div class="pricing-row"><span class="model">iPhone 13 Pro</span><span class="price">R10,400</span></div>
+      <div class="pricing-row"><span class="model">iPhone 13 Pro Max</span><span class="price">R11,700</span></div>
+      <div class="pricing-row"><span class="model">iPhone 14</span><span class="price">R9,400</span></div>
+      <div class="pricing-row"><span class="model">iPhone 14 Pro</span><span class="price">R12,200</span></div>
+      <div class="pricing-row"><span class="model">iPhone 15</span><span class="price">R11,900</span></div>
+    </div>
+
+    <!-- Other Products -->
+    <div class="pricing-table">
+      <div class="pricing-table-header">
+        <span class="icon">🛍️</span>
+        <div><h3>Other Products</h3><small>Accessories, gadgets & more</small></div>
+      </div>
+      <div class="pricing-row"><span class="model">AirPods Pro</span><span class="price">R850</span></div>
+      <div class="pricing-row"><span class="model">Smart Watch</span><span class="price">R250</span></div>
+      <div class="pricing-row"><span class="model">X8 Unique Combo Watch</span><span class="price">R520</span></div>
+      <div class="pricing-row"><span class="model">Laptop / PC</span><span class="price">R4,900</span></div>
+      <div class="pricing-row"><span class="model">Villa Fragrance 60ml</span><span class="price">R170</span></div>
+      <div class="pricing-row"><span class="model">Villa Lotion & Cologne</span><span class="price">R250</span></div>
+    </div>
+
+  </div>
+</section>
+
+<!-- CTA / CONTACT -->
+<section class="cta-section reveal" id="contact">
+  <div class="cta-text">
+    <h2>Ready to order?<br/>Let's <em>talk</em>.</h2>
+    <p>Reach us on WhatsApp 24/7. Open all day, every day. We'll get back to you fast with availability and any custom deals.</p>
+    <p style="margin-top:0.8rem; color:rgba(255,255,255,0.35); font-size:0.8rem;">📧 ndivhowisdom0@gmail.com</p>
+  </div>
+  <div class="cta-buttons">
+    <a href="https://wa.me/27663173318" target="_blank" class="btn-wa">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      WhatsApp: 066 317 3318
+    </a>
+    <a href="https://wa.me/c/27663173318" target="_blank" class="btn-wa" style="background:#0D0D0D; border:1px solid #333;">
+      Browse Full Catalogue
+    </a>
+    <a href="mailto:ndivhowisdom0@gmail.com" class="btn-email">
+      ndivhowisdom0@gmail.com
+    </a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">Eminent<span>.</span></div>
+  <div class="footer-info">
+    Open 24 hours · Shopping & Retail · South Africa<br/>
+    <a href="https://wa.me/27663173318">WhatsApp: 066 317 3318</a> ·
+    <a href="mailto:ndivhowisdom0@gmail.com">ndivhowisdom0@gmail.com</a>
+  </div>
+  <div class="footer-info" style="text-align:right;">
+    © 2026 Eminent Merchants<br/>
+    <span style="font-size:0.72rem;">Apple products sold are independently sourced</span>
+  </div>
+</footer>
+
+<!-- CART FLOAT -->
+<button class="cart-float" onclick="openCart()">
+  🛒 Cart <span class="cart-count" id="cartCount">0</span>
+</button>
+
+<!-- CART DRAWER -->
+<div class="cart-overlay" id="cartOverlay" onclick="closeCart()"></div>
+<div class="cart-drawer" id="cartDrawer">
+  <div class="cart-header">
+    <h3>Your Cart</h3>
+    <button class="cart-close" onclick="closeCart()">✕</button>
+  </div>
+  <div class="cart-items" id="cartItems">
+    <div class="cart-empty" id="cartEmpty">🛒<br/><br/>Your cart is empty.<br/>Add some products!</div>
+  </div>
+  <div class="cart-footer" id="cartFooter" style="display:none">
+    <div class="cart-total">
+      <span>Total</span>
+      <span id="cartTotal">R0</span>
+    </div>
+    <a id="checkoutBtn" href="#" class="checkout-btn" target="_blank">Order via WhatsApp →</a>
+  </div>
+</div>
+
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
+
+<script>
+  // ── CART STATE ──
+  let cart = [];
+
+  function addToCart(name, price) {
+    cart.push({ name, price });
+    updateCart();
+    showToast(`${name} added to cart ✓`);
+  }
+
+  function removeFromCart(idx) {
+    cart.splice(idx, 1);
+    updateCart();
+  }
+
+  function updateCart() {
+    const count = cart.length;
+    document.getElementById('cartCount').textContent = count;
+
+    const itemsEl = document.getElementById('cartItems');
+    const emptyEl = document.getElementById('cartEmpty');
+    const footerEl = document.getElementById('cartFooter');
+
+    // Remove old items (keep empty div)
+    const existing = itemsEl.querySelectorAll('.cart-item');
+    existing.forEach(e => e.remove());
+
+    if (count === 0) {
+      emptyEl.style.display = 'block';
+      footerEl.style.display = 'none';
+      return;
+    }
+    emptyEl.style.display = 'none';
+    footerEl.style.display = 'block';
+
+    cart.forEach((item, i) => {
+      const div = document.createElement('div');
+      div.className = 'cart-item';
+      div.innerHTML = `
+        <div class="cart-item-info">
+          <div class="name">${item.name}</div>
+          <div class="price">R${item.price.toLocaleString()}</div>
+        </div>
+        <button class="cart-item-remove" onclick="removeFromCart(${i})">✕</button>
+      `;
+      itemsEl.appendChild(div);
+    });
+
+    const total = cart.reduce((s, i) => s + i.price, 0);
+    document.getElementById('cartTotal').textContent = `R${total.toLocaleString()}`;
+
+    // Build WhatsApp message
+    const lines = cart.map(i => `• ${i.name} — R${i.price.toLocaleString()}`).join('%0A');
+    const msg = `Hi Eminent Merchants! I'd like to order:%0A%0A${lines}%0A%0ATotal: R${total.toLocaleString()}`;
+    document.getElementById('checkoutBtn').href = `https://wa.me/27663173318?text=${msg}`;
+  }
+
+  function openCart() {
+    document.getElementById('cartOverlay').classList.add('open');
+    document.getElementById('cartDrawer').classList.add('open');
+  }
+  function closeCart() {
+    document.getElementById('cartOverlay').classList.remove('open');
+    document.getElementById('cartDrawer').classList.remove('open');
+  }
+
+  // ── FILTER ──
+  function filterProducts(cat, btn) {
+    document.querySelectorAll('.product-card').forEach(card => {
+      if (cat === 'all' || card.dataset.cat === cat) {
+        card.classList.remove('hidden');
+      } else {
+        card.classList.add('hidden');
+      }
+    });
+    if (btn) {
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+    }
+    document.getElementById('products').scrollIntoView({ behavior: 'smooth' });
+  }
+
+  // ── TOAST ──
+  function showToast(msg) {
+    const t = document.getElementById('toast');
+    t.textContent = msg;
+    t.classList.add('show');
+    setTimeout(() => t.classList.remove('show'), 2200);
+  }
+
+  // ── MOBILE MENU ──
+  function toggleMenu() {
+    document.getElementById('mobileMenu').classList.toggle('open');
+  }
+
+  // ── SCROLL REVEAL ──
+  const revealEls = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); }
+    });
+  }, { threshold: 0.1 });
+  revealEls.forEach(el => io.observe(el));
+
+  // ── PRICING TABLE CLICK TO ADD ──
+  document.querySelectorAll('.pricing-row').forEach(row => {
+    const nameEl = row.querySelector('.model');
+    const priceEl = row.querySelector('.price');
+    if (!nameEl || !priceEl) return;
+
+    const priceValue = Number(priceEl.textContent.replace(/[^0-9]/g, ''));
+    if (!nameEl.textContent.trim() || !priceValue) return;
+
+    row.classList.add('addable');
+    row.addEventListener('click', () => addToCart(nameEl.textContent.trim(), priceValue));
+  });
+</script>
+
+</body>
+</html>
